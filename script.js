@@ -2,7 +2,10 @@
 const API_URL = "https://jsonplaceholder.typicode.com/photos";
 
 // fecthing api
-const consumo = fetch(`${API_URL}`)
+const consumo = fetch(`${API_URL}`, {
+  method: "GET",
+  headers: { "Content-type": "application/json;charset=UTF-8" },
+})
   .then((response) => response.json())
   .then((data) => {
     return data;
@@ -14,7 +17,7 @@ const getDatos = () => {
     setTimeout(() => {
       resolve(consumo);
     }, 3000);
-  });
+  }).finally(() => alert("promise ready"));
 };
 
 // asyn function
